@@ -13,8 +13,6 @@ COPY /database.js .
 COPY /index.js .
 COPY /keys.js .
 WORKDIR /EstudiantesSD
-#COPY /package.json .
-#WORKDIR /EstudiantesSD/src
-#RUN npm install
+WORKDIR /EstudiantesSD/src
 EXPOSE 3000
 CMD node index.js
