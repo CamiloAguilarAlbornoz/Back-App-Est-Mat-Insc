@@ -7,7 +7,7 @@ exports.registerPetitions = void 0;
 const database_1 = __importDefault(require("../database"));
 class RegisterPetitionsController {
     create(estado) {
-        database_1.default.query(`INSERT INTO REGISTROS_PETICIONES (estado, descripcion) VALUES ('${estado}','Captado en el servidor 2');`);
+        database_1.default.query(`INSERT INTO REGISTROS_PETICIONES (estado, descripcion) VALUES ('${estado}','Captado en el servidor 3');`);
     }
 }
 exports.registerPetitions = new RegisterPetitionsController();
