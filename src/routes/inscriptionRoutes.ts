@@ -11,11 +11,11 @@ class InscriptionRoutes{
 
     config(): void{
         this.router.get('/',inscriptionController.list);
-        this.router.get('/:idm/:ide', inscriptionController.getId );
+        this.router.get('/:id', inscriptionController.getId );
         this.router.post('/', inscriptionController.create);
-        this.router.delete('/:idm/:ide', inscriptionController.delete );
-        this.router.put('/:idm/:ide', inscriptionController.update );
-        this.router.patch('/:idm/:ide', inscriptionController.patch);
+        this.router.delete('/:id', inscriptionController.delete );
+        this.router.put('/:id', inscriptionController.update );
+        this.router.patch('/:id', inscriptionController.patch);
     }
 }
 

@@ -9,11 +9,11 @@ class InscriptionRoutes {
     }
     config() {
         this.router.get('/', inscriptionController_1.inscriptionController.list);
-        this.router.get('/:idm/:ide', inscriptionController_1.inscriptionController.getId);
+        this.router.get('/:id', inscriptionController_1.inscriptionController.getId);
         this.router.post('/', inscriptionController_1.inscriptionController.create);
-        this.router.delete('/:idm/:ide', inscriptionController_1.inscriptionController.delete);
-        this.router.put('/:idm/:ide', inscriptionController_1.inscriptionController.update);
-        this.router.patch('/:idm/:ide', inscriptionController_1.inscriptionController.patch);
+        this.router.delete('/:id', inscriptionController_1.inscriptionController.delete);
+        this.router.put('/:id', inscriptionController_1.inscriptionController.update);
+        this.router.patch('/:id', inscriptionController_1.inscriptionController.patch);
     }
 }
 const inscriptionRoutes = new InscriptionRoutes();
