@@ -8,7 +8,7 @@ const registerPetitionsControll_1 = require("./registerPetitionsControll");
 const database_1 = __importDefault(require("../database"));
 class InscriptionController {
     list(req, res) {
-        const inscripciones = database_1.default.query('select i.id_inscripcion, e.nombre, e.apellido, m.nombre_materia, i.estado_inscripcion from ESTUDIANTES e, MATERIAS m, INSCRIPCION_MATERIAS i WHERE e.id_estudiante = i.id_estudiante AND m.id_materia = i.id_materia', (err, results, fields) => {
+        const inscripciones = database_1.default.query('SELECT m.nombre_materia "MATERIA", COUNT(e.id_estudiante) "CANTIDAD" from ESTUDIANTES e, MATERIAS m, INSCRIPCION_MATERIAS i WHERE e.id_estudiante = i.id_estudiante AND m.id_materia = i.id_materia GROUP BY m.id_materia', (err, results, fields) => {
             res.json(results);
             registerPetitionsControll_1.registerPetitions.create('GET: 200, Se obtuvieron las inscripciones');
         });
