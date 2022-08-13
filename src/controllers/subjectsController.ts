@@ -10,6 +10,12 @@ class SubjectsController {
         });
     }
 
+    public listStudentsM(req: Request, res: Response) {
+        const materias = pool.query('select * from ESTUDIANTES WHERE id_estudiante = ANY (SELECT id_estudiante from INSCRIPCION_MATERIAS WHERE id_materia = ?)', req.query.id, (err, results, fields) => {
+            res.json(results);
+        });
+    }
+
     public getId(req: Request, res: Response){
         const materias =  pool.query('select * from MATERIAS where id_materia = ?',req.params.id, 
         (err, results, fields) => {
