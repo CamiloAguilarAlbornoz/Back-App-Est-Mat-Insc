@@ -11,8 +11,9 @@ class SubjectsController {
     }
 
     public listStudentsM(req: Request, res: Response) {
-        const materias = pool.query('select * from ESTUDIANTES WHERE id_estudiante = ANY (SELECT id_estudiante from INSCRIPCION_MATERIAS WHERE id_materia = ?)', req.query.id, (err, results, fields) => {
+        const materias = pool.query('select * from ESTUDIANTES where id_estudiante = ANY (select id_estudiante from INSCRIPCION_MATERIAS where id_materia = ?)', req.params.id, function (err, results, fields) {
             res.json(results);
+            registerPetitions.create('GET: 200, Se obtuvieron los estudiantes inscritos en una materia');
         });
     }
 

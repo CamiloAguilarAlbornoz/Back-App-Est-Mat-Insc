@@ -17,7 +17,7 @@ class SubjectsRoutes{
         this.router.delete('/:id', subjectsController.delete );
         this.router.put('/:id', subjectsController.update );
         this.router.patch('/:id', subjectsController.patch);
-    }
+    } 
 }
 
 const subjectsRoutes = new SubjectsRoutes();

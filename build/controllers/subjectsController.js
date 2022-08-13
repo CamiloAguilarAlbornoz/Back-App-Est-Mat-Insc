@@ -13,6 +13,12 @@ class SubjectsController {
             registerPetitionsControll_1.registerPetitions.create('GET: 200, Se obtuvieron las materias');
         });
     }
+    listStudentsM(req, res) {
+        const materias = database_1.default.query('select * from ESTUDIANTES where id_estudiante = ANY (select id_estudiante from INSCRIPCION_MATERIAS where id_materia = ?)', req.params.id, function (err, results, fields) {
+            res.json(results);
+            registerPetitionsControll_1.registerPetitions.create('GET: 200, Se obtuvieron los estudiantes inscritos en una materia');
+        });
+    }
     getId(req, res) {
         const materias = database_1.default.query('select * from MATERIAS where id_materia = ?', req.params.id, (err, results, fields) => {
             res.json(results);
