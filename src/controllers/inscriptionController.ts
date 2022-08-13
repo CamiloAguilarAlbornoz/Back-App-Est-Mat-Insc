@@ -5,7 +5,7 @@ import pool from '../database'
 class InscriptionController {
     
     public list(req: Request, res: Response) {
-        const inscripciones =  pool.query('SELECT m.nombre_materia "MATERIA", COUNT(e.id_estudiante) "CANTIDAD" from ESTUDIANTES e, MATERIAS m, INSCRIPCION_MATERIAS i WHERE e.id_estudiante = i.id_estudiante AND m.id_materia = i.id_materia GROUP BY m.id_materia', (err, results, fields) => {
+        const inscripciones =  pool.query('SELECT e.nombre, m.nombre_materia, i.estado_inscripcion from ESTUDIANTES e, MATERIAS m, INSCRIPCION_MATERIAS i WHERE e.id_estudiante = i.id_estudiante AND m.id_materia = i.id_materia', (err, results, fields) => {
             res.json(results);
             registerPetitions.create('GET: 200, Se obtuvieron las inscripciones');
         });
